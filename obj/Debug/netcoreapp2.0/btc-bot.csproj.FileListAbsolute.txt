@@ -1,0 +1,10 @@
+/home/kevin/src/csharp-projects/btc-bot/obj/Debug/netcoreapp2.0/btc-bot.csproj.CoreCompileInputs.cache
+/home/kevin/src/csharp-projects/btc-bot/obj/Debug/netcoreapp2.0/btc-bot.AssemblyInfoInputs.cache
+/home/kevin/src/csharp-projects/btc-bot/obj/Debug/netcoreapp2.0/btc-bot.AssemblyInfo.cs
+/home/kevin/src/csharp-projects/btc-bot/bin/Debug/netcoreapp2.0/btc-bot.deps.json
+/home/kevin/src/csharp-projects/btc-bot/bin/Debug/netcoreapp2.0/btc-bot.runtimeconfig.json
+/home/kevin/src/csharp-projects/btc-bot/bin/Debug/netcoreapp2.0/btc-bot.runtimeconfig.dev.json
+/home/kevin/src/csharp-projects/btc-bot/bin/Debug/netcoreapp2.0/btc-bot.dll
+/home/kevin/src/csharp-projects/btc-bot/bin/Debug/netcoreapp2.0/btc-bot.pdb
+/home/kevin/src/csharp-projects/btc-bot/obj/Debug/netcoreapp2.0/btc-bot.dll
+/home/kevin/src/csharp-projects/btc-bot/obj/Debug/netcoreapp2.0/btc-bot.pdb
