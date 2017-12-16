@@ -8,7 +8,7 @@
             "args": [
                 "run",
                 "--project",
-                "${workspaceFolder}/btc-bot.csproj"
+                "btc-bot.csproj"
             ],
             "problemMatcher": "$msCompile",
             "group": {
