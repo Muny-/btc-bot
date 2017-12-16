@@ -1,8 +1,7 @@
 ﻿using System;
 using PureWebSockets;
 using System.Net.WebSockets;
-using System.Text;
-using System.Runtime.InteropServices;
+using TensorFlow;
 
 namespace btc_bot
 {
@@ -61,43 +60,28 @@ namespace btc_bot
 
             */
 
-            /*using (var graph = new TFGraph())
+            using (var session = new TFSession())
             {
-                using (var session = new TFSession(graph))
-                {
-                    
+                var graph = session.Graph;
 
-                    var a = graph.Const(2, "a");
-                    var b = graph.Const(3, "b");
-                    Console.WriteLine("a=2 b=3");
+                var a = graph.Placeholder(TFDataType.Double);
+                var b = graph.Placeholder(TFDataType.Double);
+                Console.WriteLine("a=3.0 b=4.0");
 
-                    var addResults = session.Run(null, new TFOutput[] { graph.Add(a, b) }, new TFTensor[] { }, new TFOutput[] {});
+                var adder_node = graph.Div(a, b);                
 
-                    Console.WriteLine("a+b={0}", addResults.GetValue(0));
+                var runner = session.GetRunner();
 
-                    var multiplyResults = session.Run(null, new TFOutput[] { graph.Mul(a, b) }, new TFTensor[] {1}, new TFOutput[] {});
+                runner.AddInput(a, (TFTensor)3.0);
+                runner.AddInput(b, (TFTensor)4.0);
 
-                    Console.WriteLine("a*b={0}", multiplyResults.GetValue(0));
-                }
-            }*/
+                runner.Fetch(adder_node);
 
-            
+                var addingResults = runner.Run();
 
-            var value = $"Hello from {TFCore.Version}";
-
-            using (var graph = new TFGraph())
-            using (var tensor = TFTensor.CreateString(Encoding.UTF8.GetBytes(value)))
-            {
-                var output = graph.Const(tensor, tensor.TensorType, "test");
-                using (var session = new TFSession(graph))
-                {
-                    var run = session.GetRunner().Fetch(output).Run();
-                    var bytes = run[0];
-                    var bytesDest = new byte[(int)bytes.TensorByteSize];
-                    Marshal.Copy(bytes.Data, bytesDest, 0, bytesDest.Length);
-
-                    //Encoding.UTF8.GetString(bytesDest).Should().Contain(value);
-                }
+                // Add two constants
+                var addingResultValue = addingResults;
+                Console.WriteLine("a/b={0}", addingResultValue);
             }
         }
 
